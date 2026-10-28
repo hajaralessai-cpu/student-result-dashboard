@@ -1,0 +1,102 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>الشريط الإخباري — مؤشرات نتائج الطلبة</title>
+<style>
+  :root {
+    --navy: #075985;
+    --blue: #087eaf;
+    --teal: #08a6a6;
+    --mint: #dff8f7;
+    --white: #ffffff;
+    --green: #087f5b;
+    --red: #c62828;
+    --ink: #083b5c;
+  }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0; padding: 24px;
+    font-family: Tahoma, Arial, sans-serif;
+    background: #f1f8fc; color: var(--ink);
+  }
+  .demo-label { margin: 0 auto 10px; max-width: 1100px; font-size: 13px; color: #53738a; }
+  .news-shell {
+    max-width: 1100px; margin: auto; display: flex; align-items: stretch;
+    min-height: 58px; overflow: hidden; border-radius: 12px;
+    background: linear-gradient(100deg, #075985, #087eaf 60%, #08a6a6);
+    box-shadow: 0 8px 22px rgba(7, 89, 133, .18);
+    border: 1px solid rgba(255,255,255,.65);
+  }
+  .news-label {
+    flex: 0 0 auto; display: flex; align-items: center; gap: 9px;
+    padding: 0 18px; color: #fff; font-weight: 700; white-space: nowrap;
+    background: rgba(2, 44, 70, .38); z-index: 2;
+  }
+  .live-dot {
+    width: 9px; height: 9px; border-radius: 50%; background: #75fff0;
+    box-shadow: 0 0 0 0 rgba(117,255,240,.7); animation: pulse 1.7s infinite;
+  }
+  .viewport { min-width: 0; flex: 1; display: flex; align-items: center; overflow: hidden; }
+  .ticker {
+    display: flex; width: max-content; align-items: center; white-space: nowrap;
+    animation: ticker-scroll 38s linear infinite;
+  }
+  .news-shell:hover .ticker, .news-shell:focus-within .ticker { animation-play-state: paused; }
+  .ticker-group { display: flex; align-items: center; flex-shrink: 0; }
+  .item { display: inline-flex; align-items: center; gap: 8px; padding: 0 24px; color: #fff; font-size: 14px; }
+  .item strong { color: #bffff7; font-weight: 700; }
+  .item .up { color: #9bffd0; font-weight: 700; }
+  .item .down { color: #ffd2d2; font-weight: 700; }
+  .sep { color: rgba(255,255,255,.45); font-size: 20px; }
+  .icon { width: 25px; height: 25px; display: inline-grid; place-items: center; border-radius: 8px; background: rgba(255,255,255,.15); font-size: 15px; }
+  .note { max-width: 1100px; margin: 10px auto 0; font-size: 12px; color: #658196; }
+  @keyframes ticker-scroll {
+    from { transform: translateX(0); }
+    to { transform: translateX(50%); }
+  }
+  @keyframes pulse {
+    0% { box-shadow: 0 0 0 0 rgba(117,255,240,.65); }
+    70% { box-shadow: 0 0 0 7px rgba(117,255,240,0); }
+    100% { box-shadow: 0 0 0 0 rgba(117,255,240,0); }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .ticker, .live-dot { animation: none; }
+  }
+  @media (max-width: 600px) {
+    body { padding: 12px; }
+    .news-label { padding: 0 12px; font-size: 13px; }
+    .item { padding: 0 16px; font-size: 12px; }
+  }
+</style>
+</head>
+<body>
+  <p class="demo-label">معاينة الشريط الإخباري — بيانات توضيحية قابلة للاستبدال بمؤشراتك الفعلية</p>
+  <section class="news-shell" aria-label="شريط الأخبار والمؤشرات">
+    <div class="news-label"><span class="live-dot"></span><span>مؤشرات الأداء</span></div>
+    <div class="viewport">
+      <div class="ticker">
+        <div class="ticker-group">
+          <span class="item"><span class="icon">↗</span><span>متوسط النسبة المئوية <strong>78.6%</strong> <span class="up">▲ 3.8%</span></span></span><span class="sep">•</span>
+          <span class="item"><span class="icon">🏆</span><span>أعلى تحسن: <strong>ولاية صحار</strong> <span class="up">▲ 4.2%</span></span></span><span class="sep">•</span>
+          <span class="item"><span class="icon">🏫</span><span>مدارس تحقق تقدمًا في نتائج الصف الثامن</span></span><span class="sep">•</span>
+          <span class="item"><span class="icon">↘</span><span>مؤشر يحتاج إلى متابعة: <strong>انخفاض الأداء في بعض المدارس</strong> <span class="down">▼ 1.3%</span></span></span><span class="sep">•</span>
+          <span class="item"><span class="icon">📊</span><span>قارن النتائج حسب <strong>الولاية والمدرسة ونظام التعليم</strong></span></span><span class="sep">•</span>
+          <span class="item"><span class="icon">🎯</span><span>الهدف: رفع التحصيل وتحسين نواتج التعلم للصفوف الخامس–الثامن</span></span><span class="sep">•</span>
+        </div>
+        <!-- نسخة مطابقة تضمن استمرار الحركة دون فراغ -->
+        <div class="ticker-group" aria-hidden="true">
+          <span class="item"><span class="icon">↗</span><span>متوسط النسبة المئوية <strong>78.6%</strong> <span class="up">▲ 3.8%</span></span></span><span class="sep">•</span>
+          <span class="item"><span class="icon">🏆</span><span>أعلى تحسن: <strong>ولاية صحار</strong> <span class="up">▲ 4.2%</span></span></span><span class="sep">•</span>
+          <span class="item"><span class="icon">🏫</span><span>مدارس تحقق تقدمًا في نتائج الصف الثامن</span></span><span class="sep">•</span>
+          <span class="item"><span class="icon">↘</span><span>مؤشر يحتاج إلى متابعة: <strong>انخفاض الأداء في بعض المدارس</strong> <span class="down">▼ 1.3%</span></span></span><span class="sep">•</span>
+          <span class="item"><span class="icon">📊</span><span>قارن النتائج حسب <strong>الولاية والمدرسة ونظام التعليم</strong></span></span><span class="sep">•</span>
+          <span class="item"><span class="icon">🎯</span><span>الهدف: رفع التحصيل وتحسين نواتج التعلم للصفوف الخامس–الثامن</span></span><span class="sep">•</span>
+        </div>
+      </div>
+    </div>
+  </section>
+  <p class="note">تنبيه: النسب والأسماء الواردة في المعاينة افتراضية. استبدلها بنتائجك الفعلية قبل النشر.</p>
+</body>
+</html>
